@@ -14,4 +14,8 @@
     <ProjectReference Include="..\AuthenticationApi.Application\AuthenticationApi.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>
