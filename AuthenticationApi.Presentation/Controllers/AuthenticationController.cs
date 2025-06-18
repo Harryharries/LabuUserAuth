@@ -17,7 +17,7 @@ namespace AuthenticationApi.Presentation.Controllers
                 return BadRequest(ModelState);
             }
             var result = await userInterface.RegisterAsync(userDTO);
-            return result.Flag ? Ok(result) : BadRequest(Request);
+            return result.Flag ? Ok(result) : BadRequest(result);
         }
 
         [HttpPost("login")]
@@ -28,7 +28,7 @@ namespace AuthenticationApi.Presentation.Controllers
                 return BadRequest(ModelState);
             }
             var result = await userInterface.LoginAsync(loginDTO);
-            return result.Flag ? Ok(result) : BadRequest(Request);
+            return result.Flag ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("{id:int}")]
@@ -39,7 +39,7 @@ namespace AuthenticationApi.Presentation.Controllers
                 return BadRequest("Invalid id");
             }
             var result = await userInterface.GetAppUserAsync(id);
-            return result.Id > 0 ? Ok(result) : NotFound();
+            return result.Id > 0 ? Ok(result) : NotFound(result);
         }
     }
 }
