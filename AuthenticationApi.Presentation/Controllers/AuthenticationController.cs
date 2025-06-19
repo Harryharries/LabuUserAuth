@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using AuthenticationApi.Application.Interfaces;
 using AuthenticationApi.Application.DTOs;
 using eCommerce.SharedLibrary.Responses;
@@ -32,6 +33,7 @@ namespace AuthenticationApi.Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize]
         public async Task<ActionResult<GetUserDTO>> GetUserAsync(int id)
         {
             if (id <= 0)
